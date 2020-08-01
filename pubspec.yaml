@@ -1,0 +1,46 @@
+name: guarappwebfriday
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.3
+
+  # Firestore
+  cloud_firestore: ^0.13.2
+  firebase_storage: ^3.1.5
+  firebase_auth: ^0.15.5+3
+  firebase_database: ^3.1.6
+
+  # Misc
+  http: ^0.12.0
+  transparent_image: ^1.0.0
+  intl: ^0.16.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - lib/assets/img/
+
+  fonts:
+    - family: Fredoka
+      fonts:
+        - asset: lib/assets/fnt/FredokaOne-Regular.ttf
+
