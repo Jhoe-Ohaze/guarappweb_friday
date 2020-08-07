@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:guarappwebfriday/screens/ended_screen.dart';
 import 'package:guarappwebfriday/screens/product_screen.dart';
 import 'package:guarappwebfriday/widgets/background_widget.dart';
 
@@ -28,8 +29,15 @@ class _AgreementScreenState extends State<AgreementScreen>
 
   void openCalendarScreen()
   {
-    Navigator.of(context).push(MaterialPageRoute
-      (builder: (context) => ProductScreen()));
+    DateTime currentDate = DateTime.now();
+    if(currentDate.isBefore(DateTime(2020, 08, 30))) {
+      Navigator.of(context).push(MaterialPageRoute
+        (builder: (context) => ProductScreen()));
+    }
+    else {
+      Navigator.of(context).push(MaterialPageRoute
+        (builder: (context) => EndedScreen()));
+    }
   }
 
   Widget foreground()

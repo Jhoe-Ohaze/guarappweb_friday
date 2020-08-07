@@ -48,7 +48,6 @@ class _RedirectScreenState extends State<RedirectScreen>
         future: getPage(),
         builder: (context, snapshot)
         {
-          print(snapshot.data);
           if(snapshot.data != null)
           {
             String url = snapshot.data["settings"]["checkoutUrl"];

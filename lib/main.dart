@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget
   {
     return MaterialApp
     (
-      title: 'Guarapp Web',
+      title: 'Compra de Ingressos',
       debugShowCheckedModeBanner: false,
       theme: ThemeData
       (
