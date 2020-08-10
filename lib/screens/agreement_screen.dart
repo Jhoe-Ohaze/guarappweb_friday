@@ -30,7 +30,7 @@ class _AgreementScreenState extends State<AgreementScreen>
   void openCalendarScreen()
   {
     DateTime currentDate = DateTime.now();
-    if(currentDate.isBefore(DateTime(2020, 08, 30))) {
+    if(currentDate.isBefore(DateTime(2020, 08, 13))) {
       Navigator.of(context).push(MaterialPageRoute
         (builder: (context) => ProductScreen()));
     }
@@ -142,6 +142,7 @@ class _AgreementScreenState extends State<AgreementScreen>
                 ),
               ),
             ),
+            SizedBox(height: 75)
           ],
         ),
       ),

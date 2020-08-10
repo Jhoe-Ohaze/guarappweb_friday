@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:guarappwebfriday/functions/encode_data.dart';
 import 'package:guarappwebfriday/screens/redirect_screen.dart';
 import 'package:guarappwebfriday/widgets/app_bar.dart';
 import 'package:guarappwebfriday/widgets/background_widget.dart';
@@ -25,6 +25,8 @@ class _ProductScreenState extends State<ProductScreen>
 
   Map<String, dynamic> checkoutMap;
 
+  int sDay = 13, sMonth = 8, sYear = 2020;
+
   @override
   void initState()
   {
@@ -35,13 +37,11 @@ class _ProductScreenState extends State<ProductScreen>
 
   Future<int> getLimit() async
   {
-    String day = '06';
-    String month = '08';
-    String year = '2020';
-
     DocumentSnapshot snap =  await Firestore.instance
-        .collection("limits").document("years").collection(year)
-        .document("months").collection(month).document(day).get();
+        .collection("limits").document("years").collection(sYear.toString())
+        .document("months").collection(sMonth < 10 ? '0${sMonth.toString()}'
+        : sMonth.toString()).document(sDay < 10 ? '0${sDay.toString()}'
+        : sDay.toString()).get();
 
     try
     {
@@ -59,7 +59,11 @@ class _ProductScreenState extends State<ProductScreen>
 
   void openPaymentScreen(checkoutMap)
   {
-    checkoutID = 'ah9d${amount.value.toRadixString(16)}0g$milisec';
+    String day = EncodeData.ConvertDay(sDay);
+    String month = EncodeData.ConvertMonth(sMonth);
+    String year = EncodeData.ConvertYear(sYear);
+
+    checkoutID = '$year$month${day}z${amount.value.toRadixString(16)}0g$milisec';
     print(checkoutID);
     checkoutMap = {
       "OrderNumber": checkoutID,
@@ -174,10 +178,8 @@ class _ProductScreenState extends State<ProductScreen>
                 icon: Icon(Icons.arrow_right, color: Colors.blue,),
                 onPressed: ()
                 {
-                  if(amount.value < 9 && amount.value < limit)
-                  {
+                  if(amount.value < 15 && amount.value < limit)
                     amount.value++;
-                  }
                 },
               ),
             ],
@@ -322,7 +324,8 @@ class _ProductScreenState extends State<ProductScreen>
                   ),
                 );
               },
-            )
+            ),
+            SizedBox(height: 75)
           ],
         ),
       ),
