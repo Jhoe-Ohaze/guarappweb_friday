@@ -279,7 +279,9 @@ class _ProductScreenState extends State<ProductScreen>
             Padding
               (
               padding: EdgeInsets.symmetric(vertical: 100),
-              child: Text('Dia escolhido: 06/08/2020', style: TextStyle(fontSize: 25, fontFamily:
+              child: Text('Dia escolhido: ${sDay < 10 ? '0${sDay.toString()}'
+                  : sDay.toString()}/${sMonth < 10 ? '0${sMonth.toString()}'
+                  : sMonth.toString()}/2020', style: TextStyle(fontSize: 25, fontFamily:
               'Fredoka', color: Colors.amber[600]), textAlign: TextAlign.center),
             ),
             Padding
@@ -425,9 +427,10 @@ class _ProductScreenState extends State<ProductScreen>
                           Padding
                             (
                             padding: EdgeInsets.symmetric(vertical: 100),
-                            child: Text('Dia escolhido: 06/08/2020', style: TextStyle(fontSize: 25, fontFamily:
-                            'Fredoka', color: Colors.amber[600]), textAlign: TextAlign.center),
-                          ),
+                            child: Text('Dia escolhido: ${sDay < 10 ? '0${sDay.toString()}'
+                                : sDay.toString()}/${sMonth < 10 ? '0${sMonth.toString()}'
+                                : sMonth.toString()}/2020', style: TextStyle(fontSize: 25, fontFamily:
+                            'Fredoka', color: Colors.amber[600]), textAlign: TextAlign.center)                          ),
                           _buildLimit(limit.toString()),
                           _buildAmountPicker(limit),
                           SizedBox(height: 10),
