@@ -21,6 +21,7 @@ class _ProductScreenState extends State<ProductScreen>
   ScrollController scrollcontroller = ScrollController();
 
   String milisec, checkoutID;
+  String url = 'https://firebasestorage.googleapis.com/v0/b/guarapp-91591.appspot.com/o/Product%20Images%2Fcrazythursday.jpeg?alt=media&token=adf7191c-f359-43ad-b97b-1e7bf2395a37';
   bool isWeekend;
 
   Map<String, dynamic> checkoutMap;
@@ -259,7 +260,7 @@ class _ProductScreenState extends State<ProductScreen>
                           child: FadeInImage.memoryNetwork
                             (
                             placeholder: kTransparentImage,
-                            image: 'https://firebasestorage.googleapis.com/v0/b/guarapp-91591.appspot.com/o/Product%20Images%2FWhatsApp%20Image%202020-08-01%20at%2011.15.10.jpeg?alt=media&token=ddd8e6a5-e84d-4fe2-9031-befec79384ab',
+                            image: url,
                             fit: BoxFit.fitHeight,
                           ),
                         ),
@@ -391,7 +392,7 @@ class _ProductScreenState extends State<ProductScreen>
                               child: FadeInImage.memoryNetwork
                                 (
                                 placeholder: kTransparentImage,
-                                image: 'https://firebasestorage.googleapis.com/v0/b/guarapp-91591.appspot.com/o/Product%20Images%2FWhatsApp%20Image%202020-08-01%20at%2011.15.10.jpeg?alt=media&token=ddd8e6a5-e84d-4fe2-9031-befec79384ab',
+                                image: url,
                                 fit: BoxFit.fitHeight,
                               ),
                             ),
